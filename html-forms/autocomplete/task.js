@@ -81,12 +81,21 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
+
+    const result = [];
+    
+    this.input.querySelectorAll('option').forEach(item => {
+      if (item.text.includes(text)) {
+        result.push(
+          {
+            text: item.text,
+            value: item.value
+          }
+        );
       }
-    ];
+    });
+
+    return result;
   }
 }
 
